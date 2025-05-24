@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% for message in messages %}
+  <script>
+    alert("{{ message|escapejs }}");
+  </script>
+{% endfor %}
+
+<section class="breadcrumb-section set-bg" style="height: 520px;" data-setbg="{% static 'img/breadcrumb/classes-breadcrumb.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>Dietitians</h2>
+                    <div class="breadcrumb-option">
+                        <a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>
+                        <span>Dietitians</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+   <section class="bg-light p-5">
+  <div class="container">
+    <div class="row">
+      {% for i in dietitians %}
+      <div class="col-md-4">
+        <div class="card shadow h-100 text-center">
+          {% if i.profile %}
+          <img src="{{ i.profile.url }}" class="card-img-top img-fluid" alt="{{ i.name }}" style="height: 300px; object-fit: cover;">
+          {% else %}
+          <img src="{% static 'img/default-profile.jpg' %}" class="card-img-top img-fluid" alt="Default image" style="height: 300px; object-fit: cover;">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title text-primary">{{ i.name }}</h5>
+            <p class="card-text text-muted">{{ i.Qualification }}</p>
+              <a class="btn btn-secondary" href="{% url 'fillform' i.id %}">submit Profile</a>
+            <a class="btn btn-primary" href="{% url 'bookappointment' i.id %}">Consult</a>
+          
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

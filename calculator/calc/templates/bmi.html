@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    /* Form and Section Styling */
+.form-style {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+}
+
+.form-container {
+    width: 90%;
+    margin: 30px auto;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    font-weight: 600;
+}
+
+hr {
+    border-color: #f96332;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    font-size: 16px;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+}
+
+/* Button Styling */
+.btn-primary, .btn-danger {
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Table Styling */
+.bmi-category-table {
+    margin-top: 30px;
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+}
+
+.td-category {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Info Boxes */
+.info-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.info-box {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 32%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h3 {
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #666;
+}
+
+</style>
+<!-- Breadcrumb Section -->
+<section class="breadcrumb-section set-bg" style="height: 520px;" data-setbg="{% static 'img/breadcrumb/classes-breadcrumb.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>BMI Calculator</h2>
+                    <div class="breadcrumb-option">
+                        <a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>
+                        <span>BMI Calculator</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BMI Calculation and Information Section -->
+<div class="form-container">
+    {% if user.is_authenticated %}
+    <div class="data-container">
+        <button class="alert alert-info nice-alert" onclick="document.getElementById('bmiMessage').style.display='block';">
+            Click and check your last saved BMI value!
+        </button>
+        {% if last_bmi %}
+        <div id="bmiMessage" class="alert alert-info nice-alert" style="display: none;">
+            Your last BMI: <br/><span class="strong-text">{{ last_bmi }}</span>
+        </div>
+        {% else %}
+        <div id="bmiMessage" class="alert alert-info nice-alert" style="display: none;">
+            Your last BMI: <br/><span class="strong-text">Not saved last BMI</span>
+        </div>
+        {% endif %}
+        
+
+    </div>
+    {% endif %}
+
+    <div class="form-style">
+        <form action="{% url 'bmi-filled' %}" method="post">
+            {% csrf_token %}
+            <h2>BMI Calculator</h2>
+            <hr>
+            <!-- {% if user.is_authenticated %}
+            <a href="{% url 'bmi-filled' %}" class="btn btn-info mb-3" style="color:white; font-weight: 600;">Click if you want to fill out the form with last saved data</a>
+            <hr>
+            {% endif %} -->
+            <div class="form-group">
+                <label for="height">Height (cm)</label>
+                <input type="number" class="form-control" id="height" name="height" placeholder="Enter your height in cm" min=50 max=300 required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" class="form-control" id="weight" name="weight" placeholder="Enter your weight in kg" min="10" max="500" required>
+            </div>
+            <div class="form-group">
+                <label>Gender</label><br>
+                <input type="radio" id="male" name="gender" value="male" required> <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female"> <label for="female">Female</label>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Calculate">
+                <input type="reset" class="btn btn-danger" value="Clear">
+            </div>
+        </form>
+    </div>
+
+    <!-- BMI Categories Table -->
+    <div class="bmi-category-table">
+        <h3>BMI Categories</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>BMI Range</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="td-category">Severe Thinness</td>
+                    <td>< 16</td>
+                </tr>
+                <tr>
+                    <td class="td-category">Underweight</td>
+                    <td>16 - 18.5</td>
+                </tr>
+                <tr>
+                    <td class="td-category">Normal Weight</td>
+                    <td>18.5 - 24.9</td>
+                </tr>
+                <tr>
+                    <td class="td-category">Overweight</td>
+                    <td>25 - 29.9</td>
+                </tr>
+                <tr>
+                    <td class="td-category">Obese</td>
+                    <td>30 - 34.9</td>
+                </tr>
+                <tr>
+                    <td class="td-category">Severely Obese</td>
+                    <td>35 - 39.9</td>
+                </tr>
+                <tr>
+                    <td class="td-category">Morbidly Obese</td>
+                    <td>> 40</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Information Section -->
+<section class="info-grid">
+    <div class="info-box">
+        <h3>What is BMI?</h3>
+        <p>BMI (Body Mass Index) is calculated from height (in meters) and weight (in kilograms). It helps determine if your weight is within a healthy range. This index is widely used for quick assessment.</p>
+    </div>
+    <div class="info-box">
+        <h3>Important Warnings</h3>
+        <p>BMI calculators should only be used by individuals above 14 years old. It's not accurate for pregnant women or lactating mothers. Additionally, athletes with high muscle mass may have higher BMI readings even though they are healthy.</p>
+    </div>
+    <div class="info-box">
+        <h3>What to Do with the Result?</h3>
+        <p>If your BMI indicates that you are overweight or underweight, it is advisable to consult a health professional like a dietitian or personal trainer. Healthy changes in lifestyle and diet can improve BMI readings over time.</p>
+    </div>
+</section>
+
+{% endblock %}

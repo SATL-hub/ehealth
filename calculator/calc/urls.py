@@ -1,0 +1,32 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.home,name='home'),
+    path('about',views.about,name='about'),
+    path('classes',views.classes,name='classes'),
+    path('gallery',views.gallery,name="gallery"),
+    path('contact',views.contact,name='contact'),
+    path('register',views.register,name='register'),
+    path('loginn',views.loginn,name='loginn'),
+    path('logoutt',views.logoutt,name="logoutt"),
+    path('bmi',views.bmi,name="bmi"),
+    path('bmr',views.bmr,name='bmr'),
+    path('pal',views.pal,name='pal'),
+    path('tmr',views.tmr,name='tmr'),
+    path('bmi_calculator/filled/', views.bmi_calculator_filled_out, name='bmi-filled'),
+    path('bmr_calculator/filled/', views.bmr_calculator_filled_out, name='bmr-filled'),
+    path('tmr_calculator/filled/', views.tmr_calculator_filled_out, name='tmr-filled'),
+    path('consult_dietitian',views.consult_dietitian,name='consult_dietitian'),
+    path('dietitian',views.dietitian,name='dietitian'),
+    path('dietitianlogin',views.dietitianlogin,name='dietitianlogin'),
+    path('fillform/<int:id>',views.fillform,name='fillform'),
+    path('viewprofile',views.viewprofile,name='viewprofile'),
+    path('bookappointment/<int:id>',views.bookappointment,name='bookappointment'),
+    path('checkout/<int:id>',views.checkout,name='checkout'),
+    path('payment_success/<int:id>',views.payment_success,name="payment_success"),
+    path('checkoutplan/<int:id>',views.checkoutplan,name='checkoutplan'),
+    path('plan_payment_success/<int:id>',views.plan_payment_success,name="plan_payment_success"),
+    # path('savedata',views.savedata,name='savedata'),
+    # path('dietitianlogout',views.dietitianlogout,name='dietitianlogout'),
+]

@@ -1,0 +1,454 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<script>alert("{{ message|escapejs }}");</script>
+
+{% endfor %}
+{% endif %}
+    <!-- Hero Section Begin -->
+    <section class="hero-section" style="background-image: url('/static/img/hero-bg.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="hero-text">
+                        <span>FITNESS ELEMENTS</span>
+                        <h1>BMI, BMR, PAL CALCULATORS</h1>
+                        <p>Select your Membership plan and Join with us <br /> Consult Best Dietitans</p>
+                        <a href="{% url 'about' %}" class="primary-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- About Section Begin -->
+    <section class="about-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-pic">
+                        <img src="{% static 'img/about-pic.jpg' %}" alt="">
+                        <a href="https://www.youtube.com/watch?v=SlPhMPnQ58k" class="play-btn video-popup">
+                            <img src="{% static 'img/play.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <h2>Story About Us</h2>
+                        <p>Welcome to eHealth – where fitness meets expert nutrition.</p>
+                        <p class="first-para">At eHealth, we believe that a healthy body begins with a balanced approach —
+                             combining physical fitness and professional dietary guidance. We are more than just a gym;
+                              we are a holistic wellness platform designed to support every step of your health journey.</p>
+                        <!-- <p class="second-para">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, gravida
+                            quam semper libero sit amet. Etiam rhoncus. Maecenas tempus, tellus eget condimentum
+                            rhoncus, gravida quam semper libero sit amet.</p> -->
+                        <a href="{% url 'about' %}" class="primary-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Services Section Begin -->
+    <section class="services-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="services-pic">
+                        <img src="{% static 'img/services/service-pic.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-items">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="services-item bg-gray">
+                                    <img src="{% static 'img/services/service-icon-1.png' %}" alt="">
+                                    <h4>Personalized Nutrition Plans</h4>
+            <p>Customized diet plans based on your health goals and lifestyle.</p>
+                                </div>
+                                <div class="services-item bg-gray pd-b">
+                                    <img src="{% static 'img/services/service-icon-3.png' %}" alt="">
+                                    <h4>Customized Fitness Programs</h4>
+            <p>Workouts designed for your body type and daily routine.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="services-item">
+                                    <img src="{% static 'img/services/service-icon-2.png' %}" alt="">
+                                    <h4>Therapeutic Yoga Sessions</h4>
+            <p>Improve flexibility, reduce stress, and boost focus with yoga.</p>
+                                </div>
+                                <div class="services-item pd-b">
+                                    <img src="{% static 'img/services/service-icon-4.png'%}" alt="">
+                                    <h4>Sustainable Weight Loss</h4>
+            <p>Lose weight naturally through diet, exercise, and support.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Classes Section Begin -->
+    <section class="classes-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>UNLIMITED CLASSES</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row classes-slider owl-carousel">
+                <div class="col-lg-4">
+                    <div class="single-class-item set-bg" data-setbg="{% static 'img/classes/classes-1.jpg' %}">
+                        <div class="si-text">
+                            <h4>Yoga</h4>
+                            <span><i class="fa fa-user"></i> Ryan Knight</span>
+                        </div>
+                    </div>
+                    <div class="single-class-item set-bg" data-setbg="{% static 'img/classes/classes-4.jpg'%}">
+                        <div class="si-text">
+                            <h4>Karate</h4>
+                            <span><i class="fa fa-user"></i> Kevin McCormick</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-class-item set-bg" data-setbg="{% static 'img/classes/classes-2.jpg' %}">
+                        <div class="si-text">
+                            <h4>Running</h4>
+                            <span><i class="fa fa-user"></i> Randy Rivera</span>
+                        </div>
+                    </div>
+                    <div class="single-class-item set-bg" data-setbg="{% static 'img/classes/classes-5.jpg' %}">
+                        <div class="si-text">
+                            <h4>Dance</h4>
+                            <span><i class="fa fa-user"></i> Russell Lane</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-class-item set-bg" data-setbg="{% static 'img/classes/classes-3.jpg' %}">
+                        <div class="si-text">
+                            <h4>Personal Training</h4>
+                            <span><i class="fa fa-user"></i> Cole Robertson</span>
+                        </div>
+                    </div>
+                    <div class="single-class-item set-bg" data-setbg="{% static 'img/classes/classes-6.jpg' %}">
+                        <div class="si-text">
+                            <h4>Weight Loss</h4>
+                            <span><i class="fa fa-user"></i> Ryan Scott</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-class-item set-bg" data-setbg="{% static 'img/classes/classes-7.jpg'%}">
+                        <div class="si-text">
+                            <h4>Personal Training</h4>
+                            <span><i class="fa fa-user"></i> Cole Robertson</span>
+                        </div>
+                    </div>
+                    <div class="single-class-item set-bg" data-setbg="{% static 'img/classes/classes-8.jpg' %}">
+                        <div class="si-text">
+                            <h4>Weight Loss</h4>
+                            <span><i class="fa fa-user"></i> Ryan Scott</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Classes Section End -->
+
+    <!-- Trainer Section Begin -->
+    <section class="trainer-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>EXPERT TRAINERS</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-trainer-item">
+                        <img src="{% static 'img/trainer/trainer-1.jpg' %}" alt="">
+                        <div class="trainer-text">
+                            <h5>Patrick Cortez</h5>
+                            <span>Leader</span>
+                            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                voluptatem.</p>
+                            <div class="trainer-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-trainer-item">
+                        <img src="{% static 'img/trainer/trainer-2.jpg' %}" alt="">
+                        <div class="trainer-text">
+                            <h5>Gregory Powers</h5>
+                            <span>Gym coach</span>
+                            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                voluptatem.</p>
+                            <div class="trainer-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-trainer-item">
+                        <img src="{% static 'img/trainer/trainer-3.jpg' %}" alt="">
+                        <div class="trainer-text">
+                            <h5>Walter Wagner</h5>
+                            <span>Dance trainer</span>
+                            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                voluptatem.</p>
+                            <div class="trainer-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Trainer Section End -->
+
+    <!-- Testimonial Section Begin -->
+    <section class="testimonial-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>success stories</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="testimonial-slider owl-carousel">
+                        <div class="testimonial-item">
+                            <p>This is a great gym! I came here for a quick workout and really enjoyed it. Clean, good AC, everyone very friendly, welcoming and helpful. They have a range of dumbells suitable for females. I didn't use many machines but they appeared in good condition. If I'm ever in Fort Kochi again I will definitely return</p>
+                            <div class="ti-pic">
+                                <img src="{% static 'img/testimonial/testimonial-1.jpg' %}" alt="">
+                                <div class="quote">
+                                    <img src="{% static 'img/testimonial/quote-left.png' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="ti-author">
+                                <h4>Patrick Cortez</h4>
+                                <span>Leader</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <p>This is a great gym! I came here for a quick workout and really enjoyed it. Clean, good AC, everyone very friendly, welcoming and helpful. They have a range of dumbells suitable for females. I didn't use many machines but they appeared in good condition. If I'm ever in Fort Kochi again I will definitely return </p>
+                            <div class="ti-pic">
+                                <img src="{% static 'img/testimonial/testimonial-1.jpg' %}" alt="">
+                                <div class="quote">
+                                    <img src="{% static 'img/testimonial/quote-left.png' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="ti-author">
+                                <h4>Patrick Cortez</h4>
+                                <span>Leader</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section End -->
+
+    <!-- Banner Section Begin -->
+    <section class="banner-section set-bg" data-setbg="img/banner-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="banner-text">
+                        <h2 style="color: black;">Start Your Wellness Journey Today</h2>
+                        <p style="color: black;">                        Achieve your health goals with expert guidance from certified dietitians and personalized fitness plans. Your transformation starts here.
+</p>
+                        <a href="{% url 'contact' %}" class="primary-btn banner-btn">Contact Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <img src="{% static 'img/banner-person.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section End -->
+
+    <!-- Membership Section Begin -->
+     {% if request.user.is_authenticated %}
+    <section class="membership-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>MEMBERSHIP PLANS</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+    {% for i in plans %}
+    <div class="col-lg-4">
+        <form method="post" action="{% url 'checkoutplan' i.id %}" id="payform1" data-tid="{{ i.id }}" data-detail-url="{% url 'home' %}">
+            {% csrf_token %}
+            <div class="membership-item h-100">
+                <div class="mi-title">
+                    <h4>{{ i.plan_name }}</h4>
+                    <div class="triangle"></div>
+                </div>
+                <h2 class="mi-price">₹{{ i.price_per_month }}<span>/mo</span></h2>
+                <ul>
+                    <li>
+                        <p>Duration</p>
+                        <span>{{ i.duration_in_months|floatformat:0 }} months</span>
+                    </li>
+                    <li>
+                        <p>Personal trainer</p>
+                        <span>{% if i.personal_trainer %}Yes{% else %}No{% endif %}</span>
+                    </li>
+                    <li>
+                        <p>Amount of people</p>
+                        <span>{{ i.Amount_of_people|floatformat:0 }}</span>
+                    </li>
+                    <li>
+                        <p>Number of visits</p>
+                        <span>{{ i.number_of_visits }}</span>
+                    </li>
+                </ul>
+
+                <!-- Hidden fields to send plan data -->
+                <input type="hidden" name="plan_id" value="{{ i.id }}">
+                <input type="hidden" name="plan_name" value="{{ i.plan_name }}">
+                <input type="hidden" name="price" value="{{ i.price_per_month }}">
+                <input type="hidden" name="duration" value="{{ i.duration_in_months }}">
+
+                <button type="submit" class="primary-btn membership-btn">Start Now</button>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+        </div>
+    </section>{% endif %}
+    <!-- Membership Section End -->
+
+    <!-- Register Section Begin -->
+    <!-- <section class="register-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="register-text">
+                        <div class="section-title">
+                            <h2>Register Now</h2>
+                            <p>The First 7 Day Trial Is Completely Free With The Teacher</p>
+                        </div>
+                        <form action="#" class="register-form">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="name">First Name</label>
+                                    <input type="text" id="name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="email">Your email address</label>
+                                    <input type="text" id="email">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="mobile">Mobile No*</label>
+                                    <input type="text" id="mobile">
+                                </div>
+                            </div>
+                            <button type="submit" class="register-btn">Get Started</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="register-pic">
+                        <img src="{% static 'img/register-pic.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Register Section End -->
+
+    <!-- Latest Blog Section Begin -->
+    <section class="latest-blog-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Latest Blog</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-item">
+                        <img src="{% static 'img/blog/blog-1.jpg'%}" alt="">
+                        <div class="blog-widget">
+                            <div class="bw-date">February 17, 2019</div>
+                            <a href="#" class="tag">#Gym</a>
+                        </div>
+                        <h4><a href="#">10 States At Risk of Rural Hospital Closures</a></h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-item">
+                        <img src="{% static 'img/blog/blog-2.jpg'%}" alt="">
+                        <div class="blog-widget">
+                            <div class="bw-date">February 17, 2019</div>
+                            <a href="#" class="tag">#Sport</a>
+                        </div>
+                        <h4><a href="#">Diver who helped save Thai soccer team</a></h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-item">
+                        <img src="{% static 'img/blog/blog-3.jpg' %}" alt="">
+                        <div class="blog-widget">
+                            <div class="bw-date">February 17, 2019</div>
+                            <a href="#" class="tag">#Body</a>
+                        </div>
+                        <h4><a href="#">Man gets life in prison for stabbing</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="{% static 'js/checkoutplan.js' %}" defer></script>
+    <!-- Latest Blog Section End -->
+{% endblock %}

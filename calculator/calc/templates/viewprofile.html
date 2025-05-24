@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" style="height: 520px;" data-setbg="{% static 'img/breadcrumb/classes-breadcrumb.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>Profile</h2>
+                    <div class="breadcrumb-option">
+                        <a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>
+                        <span>Profile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Profile Section Begin -->
+<section class="register-section spad">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow p-4">
+                    <div class="text-center mb-4">
+                        <img src="{{ d.name.profile.url }}" alt="Profile Image" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h4 class="mt-3">{{ d.name.name }}</h4>
+                    </div>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label fw-semibold">Name</label>
+                                <input type="text" id="name" class="form-control" readonly value="{{ d.name.name }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="qualification" class="form-label fw-semibold">Qualification</label>
+                                <input type="text" id="qualification" class="form-control" readonly value="{{ d.name.Qualification }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label fw-semibold">Email</label>
+                                <input type="text" id="email" class="form-control" readonly value="{{ d.name.email }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="contact" class="form-label fw-semibold">Contact</label>
+                                <input type="text" id="contact" class="form-control" readonly value="{{ d.name.phone }}">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Appointments Section Begin -->
+<!-- Appointments Section Begin -->
+<section class="spad bg-light">
+    <div class="container">
+        <h3 class="mb-5 text-center fw-bold text-dark">Your Appointments</h3>
+        {% if b %}
+            <div class="row g-4">
+                {% for i in b %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h5 class="card-title mb-0">{{ i.appointment.fname }} {{ i.appointment.lname }}</h5>
+                                    <small class="text-muted">{{ i.appointment.email }}</small>
+                                </div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-phone-alt me-2 text-success"></i><strong> Contact:</strong> {{ i.appointment.mobile }}</li>
+                                <li><i class="fas fa-ruler-vertical me-2 text-info"></i><strong>  Height:</strong> {{ i.appointment.height }} cm</li>
+                                <li><i class="fas fa-weight me-2 text-info"></i><strong> Weight:</strong> {{ i.appointment.weight }} kg</li>
+                                <li><i class="fas fa-heartbeat me-2 text-danger"></i><strong> BMI:</strong> {{ i.appointment.bmi }} ({{ i.appointment.bmi_category }})</li>
+                                <li><i class="fas fa-fire me-2 text-warning"></i><strong> BMR:</strong> {{ i.appointment.bmr }}</li>
+                                <li><i class="fas fa-running me-2 text-primary"></i><strong> PAL:</strong> {{ i.appointment.pal }}</li>
+                                <li><i class="fas fa-calculator me-2 text-primary"></i><strong> TMR:</strong> {{ i.appointment.tmr }}</li>
+                                <li><i class="fas fa-calendar-day me-2 text-secondary"></i><strong> Date:</strong> {{ i.bdate }}</li>
+                                <li><i class="fas fa-clock me-2 text-secondary"></i><strong> Time:</strong> {{ i.btime }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center text-muted">No appointments found.</p>
+        {% endif %}
+    </div>
+</section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Appointments Section End -->
+
+<!-- Appointments Section End -->
+
+<!-- Profile Section End -->
+
+{% endblock %}

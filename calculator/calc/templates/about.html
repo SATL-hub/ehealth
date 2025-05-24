@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Header End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb/classes-breadcrumb.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>About</h2>
+                        <div class="breadcrumb-option">
+                            <a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>
+                            <span>About</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- About Section Begin -->
+    <section class="about-section about-page spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-pic">
+                        <img src="{% static 'img/about-pic.jpg' %}" alt="">
+                        <a href="https://www.youtube.com/watch?v=SlPhMPnQ58k" class="play-btn video-popup">
+                            <img src="{% static 'img/play.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <h2>Story About Us</h2>
+                        <p>Welcome to eHealth – where fitness meets expert nutrition.
+
+</p>
+                        <p class="first-para">At eHealth, we believe that a healthy body begins with a balanced approach — 
+                            combining physical fitness and professional dietary guidance. We are more than just a gym;
+                             we are a holistic wellness platform designed to support every step of your health journey.</p>
+                        <p class="second-para">Founded with a mission to make wellness accessible and personalized, 
+                            eHealth brings together certified fitness trainers and licensed dietitians under one digital roof.
+                             Whether you're looking to gain strength, lose weight, build endurance, or manage specific health conditions, 
+                             our team is here to guide you with tailored workout plans and nutrition strategies.</p>
+                             <p>What we offer</p>
+                             <ul><li>State-of-the-art gym facilities and equipment</li>
+                            <li>Personalized fitness programs crafted by expert trainers</li>
+                        <li>1-on-1 consultations with registered dietitians</li>
+                    <li>Integrated progress tracking and support through our platform</li>
+</ul>
+<p>Our philosophy is simple: "Train Smart. Eat Right. Live Well."
+We focus on sustainable, science-backed methods that fit into real lives — your life.
+
+Join the eHealth community today and take the first step toward a healthier, stronger, and more confident you.</p>
+                        <img src="{% static 'img/about-signature.png' %}" alt="">
+                        <div class="at-author">
+                            <h4>Lettie Chavez</h4>
+                            <span>CEO - Founder</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- About Counter Section Begin -->
+    <div class="about-counter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="about-counter-text">
+                        <div class="single-counter">
+                            <h1 class="counter-num count">98</h1>
+                            <p>Programs</p>
+                        </div>
+                        <div class="single-counter">
+                            <h1 class="counter-num count">14</h1>
+                            <p>Locations</p>
+                        </div>
+                        <div class="single-counter">
+                            <h1 class="counter-num count">50</h1>
+                            <span>k+</span>
+                            <p>Members</p>
+                        </div>
+                        <div class="single-counter">
+                            <h1 class="counter-num count">34</h1>
+                            <p>Coaches</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Counter Section End -->
+
+    <!-- Gym Award Section Begin -->
+    <section class="gym-award spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="award-text">
+                        <h2>Recognized for Excellence in Health & Fitness</h2>
+                        <p>We are proud to have received the <strong>Best Gym Award</strong> for our dedication to transforming lives through innovative training, expert guidance, and an inclusive wellness environment.</p>
+                    <p>Our certified trainers, state-of-the-art equipment, and personalized fitness programs have helped thousands achieve their health goals. This award is a reflection of the trust and support of our amazing fitness community.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <img src="{% static 'img/award.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gym Award Section End -->
+
+    <!-- Banner Section Begin -->
+    <section class="banner-section set-bg" data-setbg="{% static 'img/banner-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="banner-text">
+                        <h2>Start Your Wellness Journey Today</h2>
+                        <p> Achieve your health goals with expert guidance from certified dietitians and personalized fitness plans. Your transformation starts here.
+</p>
+                        <a href="{% url 'contact' %}" class="primary-btn banner-btn">Contact Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <img src="{% static 'img/banner-person.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section End -->
+
+    <!-- Trainer Section Begin -->
+    <section class="trainer-section about-trainer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>EXPERT TRAINERS</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-trainer-item">
+                        <img src="{% static 'img/trainer/about-trainer-1.jpg' %}" alt="">
+                        <div class="trainer-text">
+                            <h5>Patrick Cortez</h5>
+                            <span>Leader</span>
+                            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                voluptatem.</p>
+                            <div class="trainer-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-trainer-item">
+                        <img src="{% static 'img/trainer/about-trainer-2.jpg' %}" alt="">
+                        <div class="trainer-text">
+                            <h5>Gregory Powers</h5>
+                            <span>Gym coach</span>
+                            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                voluptatem.</p>
+                            <div class="trainer-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-trainer-item">
+                        <img src="{% static 'img/trainer/about-trainer-3.jpg' %}" alt="">
+                        <div class="trainer-text">
+                            <h5>Walter Wagner</h5>
+                            <span>Dance trainer</span>
+                            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                voluptatem.</p>
+                            <div class="trainer-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Trainer Section End -->
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg d-flex align-items-center justify-content-center text-white" 
+         style="height: 300px; background-size: cover;" 
+         data-setbg="{% static 'img/breadcrumb/classes-breadcrumb.jpg' %}">
+    <div class="text-center">
+        <h2 class="display-5 fw-bold">Confirm Booking</h2>
+        <div class="breadcrumb-option">
+            <a href="{% url 'home' %}" class="text-white"><i class="fa fa-home"></i> Home</a>
+            <span class="text-white-50"> / Confirm Booking</span>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Booking Confirmation Section Begin -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg rounded-4">
+                    <div class="card-body p-5">
+                        <h3 class="text-center mb-4">Booking Summary</h3>
+                        <form  action="{% url 'checkout' data.id %}" id="payform" data-tid="{{ data.id }}" data-detail-url="{% url 'home' %}" method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Name</label>
+                                <input type="text" class="form-control" value="{{ data.fname }} {{ data.lname }}" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Select Date</label>
+                                <input type="date" class="form-control date" name="bookdate" id="visitdate" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Select Time</label>
+                                <input type="time" class="form-control" name="booktime" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Dietitian</label>
+                                <input type="text" class="form-control" value="{{ data.dname.name }}" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Consultation Fee</label>
+                                <input type="text" class="form-control" value="₹1000" readonly>
+                                <input type="hidden" name="fee" value="1000">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 mt-3">Proceed to Payment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Booking Confirmation Section End -->
+ <script>
+  // Restrict check-in date to today or later
+  document.addEventListener('DOMContentLoaded', function () {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('visitdate').setAttribute('min', today);
+  });
+</script>
+
+<script>
+  $(".option").click(function(){
+    $(".option").removeClass("active");
+    $(this).addClass("active"); 
+  });
+</script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="{% static 'js/checkout.js' %}" defer></script>
+{% endblock %}

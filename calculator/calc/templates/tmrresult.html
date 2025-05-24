@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% for message in messages %}
+    <div class="message-success alert alert-success">
+        {{ message|safe }}
+    </div>
+{% endfor %} 
+<style>
+    /* Form and Section Styling */
+.form-style {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+}
+
+.form-container {
+    width: 90%;
+    margin: 30px auto;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    font-weight: 600;
+}
+
+hr {
+    border-color: #f96332;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    font-size: 16px;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+}
+
+/* Button Styling */
+.btn-primary, .btn-danger {
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Table Styling */
+.bmi-category-table {
+    margin-top: 30px;
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+}
+
+.td-category {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Info Boxes */
+.info-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.info-box {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 32%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h3 {
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #666;
+}
+
+</style>
+<section class="breadcrumb-section set-bg" style="height: 520px;" data-setbg="{% static 'img/breadcrumb/classes-breadcrumb.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>TMR Calculator</h2>
+                    <div class="breadcrumb-option">
+                        <a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>
+                        <span>TMR Calculator</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="form-style" >
+    <h2>Your TMR:</h2>
+    <hr>
+    <div style="background-color:#1E8CFB"><hr><font color="white"><div style='text-align:center'>
+    {{ calculated_tmr }}<br /></div></div></font></hr>
+    <br />
+    <div style="text-align: justify">
+        This is the amount of calories your body needs per day in your normal lifestyle to maintain your current weight.<br>
+        If you are looking to lose or gain weight, refer to the appropriate table below with some tips and advice.
+    </div>
+</div>
+
+
+<section class="info-grid">
+    <div class="info-box">
+        <h3>How to lose weight?</h3>
+        <p>
+            To lose weight, you need to create a caloric deficit. How can you achieve this? 
+            There are many different recommended methods, but the most popular way is to subtract approximately 15% of the calories from your calculated TMR.
+            <br /><br />
+            To make this process easier, you can start by subtracting around 200-300 kcal per day. If your weight doesn't decrease, it's an indication that you need to subtract more calories (for example, 400-500 kcal).
+        </p></div>
+    <div class="info-box">
+        <h3>How to gain weight?</h3>
+        <p>
+            If you want to increase your weight, start by adding approximately 15% of the calories from your calculated TMR. 
+            For example, if your TMR is 2000 kcal, you should aim to eat around 2300 kcal per day. 
+            <br /><br />
+            You can also simplify this approach by adding 200-300 kcal to your current TMR. Remember that if your weight doesn't change, it's an indication that you need to add even more calories (for instance, 400-500 kcal).
+        </p></div>
+    <div class="info-box">
+        <h3>IMPORTANT</h3>
+        <p>Remember that when your weight changes, you should recalculate your Total Metabolic Rate (TMR) from scratch.
+            Gaining or losing body mass can affect your TMR value and you need to take it to account for achieving your goals effectively.
+        </p></div>
+</section>
+
+{% endblock %}
